@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Henio\\source\\repos\\BookSwap\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{31E6CDE7-04A5-4E6C-A372-260EFB526992}|BookSwap\\BookSwap.csproj|c:\\users\\henio\\source\\repos\\bookswap\\bookswap\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31E6CDE7-04A5-4E6C-A372-260EFB526992}|BookSwap\\BookSwap.csproj|solutionrelative:bookswap\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31E6CDE7-04A5-4E6C-A372-260EFB526992}|BookSwap\\BookSwap.csproj|c:\\users\\henio\\source\\repos\\bookswap\\bookswap\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{31E6CDE7-04A5-4E6C-A372-260EFB526992}|BookSwap\\BookSwap.csproj|solutionrelative:bookswap\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "BookSwap\\Controllers\\BooksController.cs",
+              "ToolTip": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "BookSwap\\Controllers\\BooksController.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAiwNoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T20:19:30.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BookSwap\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BookSwap\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-31T20:08:18.633Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

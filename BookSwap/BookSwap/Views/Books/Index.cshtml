@@ -1,0 +1,64 @@
+﻿@model BookSwap.ViewModels.BookListViewModel
+
+@{
+    ViewData["Title"] = "Katalog książek";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Index" method="get" class="mb-4">
+    <div class="row g-3">
+        <div class="col-md-3">
+            <input asp-for="SearchTitle" class="form-control" placeholder="Tytuł..." />
+        </div>
+        <div class="col-md-3">
+            <input asp-for="SearchAuthor" class="form-control" placeholder="Autor..." />
+        </div>
+        <div class="col-md-2">
+            <select asp-for="SelectedGenreId" class="form-select">
+                <option value="">Wszystkie gatunki</option>
+                @foreach (var genre in Model.Genres)
+                {
+                    @:<option value="@genre.Id" @(genre.Id == Model.SelectedGenreId ? " selected" : "")>@genre.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select asp-for="SelectedCondition" class="form-select">
+                <option value="">Wszystkie stany</option>
+                @foreach (var cond in Enum.GetValues(typeof(BookSwap.Models.BookCondition)))
+                {
+                    <option
+                        value="@cond"
+                        selected="@(cond.Equals(Model.SelectedCondition) ? "selected" : null)">
+                        @cond
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Filtruj</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    @foreach (var book in Model.Books)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(book.CoverImagePath))
+                {
+                    <img src="@book.CoverImagePath" class="card-img-top" alt="@book.Title" style="height: 200px; object-fit: cover;" />
+                }
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@book.Title</h5>
+                    <p class="card-text"><strong>Autor:</strong> @book.Author</p>
+                    <p class="card-text"><strong>Gatunek:</strong> @book.Genre.Name</p>
+                    <p class="card-text"><strong>Stan:</strong> @book.Condition</p>
+                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-sm btn-outline-secondary mt-auto">Szczegóły</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

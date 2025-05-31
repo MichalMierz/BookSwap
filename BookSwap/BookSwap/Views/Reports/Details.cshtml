@@ -1,0 +1,53 @@
+﻿@model BookSwap.Models.Report
+
+@{
+    ViewData["Title"] = "Szczegóły zgłoszenia";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<dl class="row">
+    <dt class="col-sm-4">ID zgłoszenia:</dt>
+    <dd class="col-sm-8">@Model.Id</dd>
+
+    <dt class="col-sm-4">Data:</dt>
+    <dd class="col-sm-8">@Model.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</dd>
+
+    <dt class="col-sm-4">Zgłaszający:</dt>
+    <dd class="col-sm-8">@Model.Reporter.UserName</dd>
+
+    <dt class="col-sm-4">Typ:</dt>
+    <dd class="col-sm-8">@Model.Type</dd>
+
+    <dt class="col-sm-4">Dotyczy:</dt>
+    <dd class="col-sm-8">
+        @if (Model.Book != null)
+        {
+            <p>
+                <strong>Książka:</strong> @Model.Book.Title<br />
+                <strong>Właściciel:</strong> @Model.Book.Owner.UserName
+            </p>
+        }
+        else if (Model.ReportedUser != null)
+        {
+            <p><strong>Użytkownik:</strong> @Model.ReportedUser.UserName</p>
+        }
+    </dd>
+
+    <dt class="col-sm-4">Opis zgłoszenia:</dt>
+    <dd class="col-sm-8">@Model.Description</dd>
+</dl>
+
+<form asp-action="Resolve" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="form-check">
+        <input asp-for="ActionTaken_HideBook" class="form-check-input" type="checkbox" />
+        <label asp-for="ActionTaken_HideBook" class="form-check-label">Ukryj książkę</label>
+    </div>
+    <div class="form-check">
+        <input asp-for="ActionTaken_BlockUser" class="form-check-input" type="checkbox" />
+        <label asp-for="ActionTaken_BlockUser" class="form-check-label">Zablokuj konto użytkownika</label>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Oznacz jako rozwiązane</button>
+    <a asp-action="Index" class="btn btn-secondary mt-3 ms-2">Powrót</a>
+</form>
