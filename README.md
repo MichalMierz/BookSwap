@@ -4,6 +4,8 @@ Repozytorium: https://github.com/Eryk333/BookSwap
 BookSwap to webowa aplikacja umożliwiająca użytkownikom wystawianie własnych książek oraz bezpieczną wymianę egzemplarzy z innymi. Projekt powstał jako realizacja zadania zaliczeniowego z przedmiotu Programowanie zaawansowane.
 
 
+
+
 # Kluczowe funkcjonalności
 
 ### Rejestracja i role użytkowników
@@ -31,6 +33,8 @@ Lista zgłoszonych ogłoszeń z możliwością ukrycia książki lub zablokowani
 Powiązany model: Report
 
 
+
+
 # Stack technologiczny
 
 ASP.NET Core 8 MVC
@@ -40,11 +44,15 @@ Razor Pages + Bootstrap 5 (UI)
 SQLite (środowisko deweloperskie) / SQL Server (produkcja)
 
 
+
+
 # Wymagania wstępne
 
 .NET SDK	≥ 8.0
 Visual Studio 2022	≥ 17.10 (lub VS Code z C# Dev Kit)
 SQL Server Express lub SQLite	dowolna zgodna
+
+
 
 
 # Instalacja i uruchomienie
@@ -63,6 +71,8 @@ $ dotnet run                                # aplikacja wystartuje na http://loc
 Uwaga: Domyślnie wykorzystywana jest baza SQLite zapisana w pliku books.db. Zmień ciąg połączenia w appsettings.json, jeśli chcesz użyć SQL Server lub innego silnika.
 
 
+
+
 # Struktura projektu (najważniejsze katalogi)
 
 BookSwap/
@@ -70,6 +80,8 @@ BookSwap/
 ├── BookSwap.Infrastructure # konfiguracja EF Core, migracje, repozytoria
 ├── BookSwap.Web/           # warstwa MVC (Controllers, Views, ViewModels)
 └── BookSwap.Tests/         # testy jednostkowe (xUnit)
+
+
 
 
 # Schemat danych (skrót)
@@ -81,9 +93,14 @@ Book (Id) 1‑N Exchange (BookOffered / BookRequested)
 Report (Id) N‑1 Book
 
 
+
+
 # Licencja
 
 Projekt udostępniany jest na licencji MIT. Szczegóły w pliku LICENSE.
+
+
+
 
 # Autorzy
 
