@@ -1,0 +1,53 @@
+﻿@page
+@model BookSwap.Areas.Identity.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Rejestracja";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Utwórz nowe konto.</p>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <!-- IMIĘ -->
+    <div class="mb-3">
+        <label asp-for="Input.FirstName" class="form-label"></label>
+        <input asp-for="Input.FirstName" class="form-control" />
+        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+    </div>
+
+    <!-- NAZWISKO -->
+    <div class="mb-3">
+        <label asp-for="Input.LastName" class="form-label"></label>
+        <input asp-for="Input.LastName" class="form-control" />
+        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="mb-3">
+        <label asp-for="Input.Email" class="form-label"></label>
+        <input asp-for="Input.Email" class="form-control" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+
+    <!-- HASŁO -->
+    <div class="mb-3">
+        <label asp-for="Input.Password" class="form-label"></label>
+        <input asp-for="Input.Password" class="form-control" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+
+    <!-- POTWIERDŹ HASŁO -->
+    <div class="mb-3">
+        <label asp-for="Input.ConfirmPassword" class="form-label"></label>
+        <input asp-for="Input.ConfirmPassword" class="form-control" />
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

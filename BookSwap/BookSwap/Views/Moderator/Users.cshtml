@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BookSwap.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Zarządzanie użytkownikami";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Użytkownik</th>
+            <th>Email</th>
+            <th>LockoutEnd</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    @(user.LockoutEnd.HasValue
+                        ? user.LockoutEnd.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm")
+                        : "Brak")
+                </td>
+                <td>
+                    @if (user.LockoutEnd.HasValue && user.LockoutEnd > DateTimeOffset.UtcNow)
+                    {
+                        <form asp-action="UnblockUser" method="post" class="d-inline">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <button type="submit" class="btn btn-sm btn-success">Odblokuj</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="BlockUser" method="post" class="d-inline">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger">Zablokuj</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

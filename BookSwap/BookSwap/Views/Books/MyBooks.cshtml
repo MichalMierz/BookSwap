@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BookSwap.Models.Book>
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Moje Książki";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Dodaj nową książkę</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Gatunek</th>
+            <th>Stan</th>
+            <th>Dostępna</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.Genre?.Name</td>
+                <td>@item.Condition</td>
+                <td>@(item.Status == BookStatus.Dostępna ? "Tak" : "Nie")</td>
+                <td>
+                    <!-- Edycja (tylko właściciel lub moderator ma dostęp, bo w kontrolerze zabezpieczone) -->
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edytuj</a>
+                    <!-- Usunięcie -->
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model BookSwap.ViewModels.ExchangeCreateViewModel
+
+@{
+    ViewData["Title"] = "Zaproponuj wymianę";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Twoja książka</h4>
+        <dl class="row">
+            <dt class="col-sm-4">Tytuł:</dt>
+            <dd class="col-sm-8">@Model.OfferedBook.Title</dd>
+            <dt class="col-sm-4">Stan:</dt>
+            <dd class="col-sm-8">@Model.OfferedBook.Condition</dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <h4>Książka, którą chcesz otrzymać</h4>
+        <dl class="row">
+            <dt class="col-sm-4">Tytuł:</dt>
+            <dd class="col-sm-8">@Model.RequestedBook.Title</dd>
+            <dt class="col-sm-4">Stan:</dt>
+            <dd class="col-sm-8">@Model.RequestedBook.Condition</dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="OfferedBookId" />
+    <input type="hidden" asp-for="RequestedBookId" />
+    <p>
+        <strong>Używanie:</strong> po wysłaniu tej propozycji Twój status książki i status żądanej książki zostaną zmienione na „W oczekiwaniu”.
+    </p>
+    <button type="submit" class="btn btn-primary">Wyślij propozycję</button>
+    <a asp-action="Index" asp-controller="Books" class="btn btn-secondary ms-2">Anuluj</a>
+</form>

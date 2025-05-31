@@ -1,0 +1,53 @@
+﻿@using System.Security.Claims
+@model BookSwap.Models.Book
+
+@{
+    ViewData["Title"] = "Szczegóły książki";
+}
+
+<h1>@Model.Title</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        @if (!string.IsNullOrEmpty(Model.CoverImagePath))
+        {
+            <img src="@Model.CoverImagePath" class="img-fluid" alt="@Model.Title" />
+        }
+    </div>
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">Autor:</dt>
+            <dd class="col-sm-8">@Model.Author</dd>
+
+            <dt class="col-sm-4">Gatunek:</dt>
+            <dd class="col-sm-8">@Model.Genre.Name</dd>
+
+            <dt class="col-sm-4">Stan:</dt>
+            <dd class="col-sm-8">@Model.Condition</dd>
+
+            <dt class="col-sm-4">Właściciel:</dt>
+            <dd class="col-sm-8">@Model.Owner.UserName</dd>
+
+            <dt class="col-sm-4">Status:</dt>
+            <dd class="col-sm-8">@Model.Status</dd>
+        </dl>
+
+        @if (User.Identity.IsAuthenticated
+        && Model.OwnerId != User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier)
+        && Model.Status == BookSwap.Models.BookStatus.Dostępna)
+        {
+            <form asp-action="Create" asp-controller="Exchanges" method="get">
+                <input type="hidden" name="requestedBookId" value="@Model.Id" />
+                <div class="mb-3">
+                    <label for="offeredBookId" class="form-label">Wybierz swoją książkę do wymiany:</label>
+                    <select name="offeredBookId" class="form-select" required>
+                        <option value="">-- wybierz z Twoich książek --</option>
+                        @* W tym miejscu możesz wczytać listę swoich książek za pomocą PartialView lub przekazać listę z kontrolera *@
+                        @* Przykładowo: foreach(var myBook in ViewBag.MyAvailableBooks as IEnumerable<BookSwap.Models.Book>) { … } *@
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Zaproponuj wymianę</button>
+            </form>
+        }
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@model BookSwap.Models.Exchange
+
+@{
+    ViewData["Title"] = "Zakończ wymianę";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Czy na pewno chcesz oznaczyć wymianę jako zakończoną?</h3>
+
+<dl class="row">
+    <dt class="col-sm-4">Oferowana przez:</dt>
+    <dd class="col-sm-8">@Model.Initiator.UserName – @Model.OfferedBook.Title</dd>
+    <dt class="col-sm-4">Otrzymana od:</dt>
+    <dd class="col-sm-8">@Model.Recipient.UserName – @Model.RequestedBook.Title</dd>
+</dl>
+
+<form asp-action="Complete" method="get">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-success">Zakończ wymianę</button>
+    <a asp-action="MyExchanges" class="btn btn-secondary ms-2">Anuluj</a>
+</form>
