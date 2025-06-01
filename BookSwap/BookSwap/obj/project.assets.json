@@ -7987,11 +7987,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\BookSwap.csproj",
+      "projectUniqueName": "D:\\Repository\\BookSwap\\BookSwap\\BookSwap\\BookSwap.csproj",
       "projectName": "BookSwap",
-      "projectPath": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\BookSwap.csproj",
+      "projectPath": "D:\\Repository\\BookSwap\\BookSwap\\BookSwap\\BookSwap.csproj",
       "packagesPath": "C:\\Users\\Henio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\obj\\",
+      "outputPath": "D:\\Repository\\BookSwap\\BookSwap\\BookSwap\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

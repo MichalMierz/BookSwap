@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pnGhR/my6ZI=",
+  "dgSpecHash": "cA+eMaUQA3c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Henio\\source\\repos\\BookSwap\\BookSwap\\BookSwap.csproj",
+  "projectFilePath": "D:\\Repository\\BookSwap\\BookSwap\\BookSwap\\BookSwap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Henio\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Henio\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
